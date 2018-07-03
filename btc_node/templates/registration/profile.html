@@ -1,0 +1,42 @@
+{% load static %}
+
+<script src="{% static "scripts/vue.js" %}"></script>
+<script src="{% static "scripts/axios.js" %}"></script>
+
+<div>
+    <h2>BTC node Web console <a href="/accounts/logout/?next=/accounts/login">[logout]</a> </h2>
+    <form ref="csrf_form">
+    {% csrf_token %}
+    </form>
+    <div id="show_settings">
+        <table>
+            <tr><td>&nbsp;</td><td><b>JSON-RPC credentials:</b></td></tr>
+            <tr is="show-settings" v-for="item in connectSettings" :item="item"></tr>
+        </table>
+    </div>
+    <hr/>
+
+    <br/>
+    <div id="get_balance">
+        <b>Refresh BTC node balance</b>:
+        <get-balance :item="item"></get-balance>
+    </div>
+
+    <br/>
+    <div id="create_wallet">
+        <b>Create new wallet on BTC node</b>:
+        <create-wallet :item="item"></create-wallet>
+    </div>
+
+    <br/>
+    <br/>&nbsp;<br/>
+    <div id="show_wallets">
+        <b>Current BTC node wallets</b>:
+        <br/>&nbsp;<br/>
+        <table>
+            <tr is="show-wallets" v-for="item in wallets" :item="item"></tr>
+        </table>
+    </div>
+</div>
+
+<script src="{% static "scripts/app.js" %}"></script>

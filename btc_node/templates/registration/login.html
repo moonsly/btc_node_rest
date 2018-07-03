@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2>BTC node Web console</h2>
+    <form method="post" action="/accounts/login?next=/profile">
+        {% csrf_token %} 
+        {{ form.as_p }}
+
+        <input type="submit" value="{% trans 'Log in' %}" />
+        <input type="hidden" name="next" value="/profile" />
+    </form>
+</div>
+{% endblock %}

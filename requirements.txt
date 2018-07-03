@@ -1,0 +1,5 @@
+Django==1.11.14
+djangorestframework==3.8.2
+git+https://github.com/amiller/bitcoin-python
+django-constance[database]
+psycopg2==2.7.5
